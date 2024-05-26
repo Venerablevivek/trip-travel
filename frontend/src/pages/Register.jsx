@@ -14,14 +14,15 @@ const Register = () => {
     email: "",
     password: "",
     photo: "",
-    role: "user",
+    role: "",
   });
 
   const handleInput = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-
+ 
   const handleSubmit = async (e) => {
+    console.log("form data is", formData);
     e.preventDefault();
     // setIsLoading(true)
     try {
@@ -37,6 +38,13 @@ const Register = () => {
       if (response.ok) {
         // console.log('User registered successfully:', message);
         toast.success(message);
+        setFormData({
+          username: "",
+          email: "",
+          password: "",
+          photo: "",
+          role: "",
+      })
         navigate("/login");
       } else {
         toast.error(message);
@@ -123,6 +131,19 @@ const Register = () => {
                 required
               />
             </div>
+            <div className='w-[100%] flex flex-col gap-1' >
+                        <label id='role' className='text-black font-poppins ' >Are you a</label>
+                                <select
+                                    id='role'
+                                    name='role'
+                                    value={formData.role}
+                                    onChange={handleInput}
+                                    className=' w-[100%] rounded-md bg-transparent text-[16px] outline-none  '
+                                >
+                                <option value="user" >User</option>
+                                <option value="admin" >Admin</option>
+                                </select>
+              </div>
 
             <div>
               <button

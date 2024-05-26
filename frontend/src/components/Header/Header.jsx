@@ -95,6 +95,9 @@ const Header = () => {
                   <Link to="/tours" onClick={handleMenuToggle}>
                     Tours
                   </Link>
+                  <Link to="https://wanderlust-beta.vercel.app/" onClick={handleMenuToggle}>
+                    Booking Blog
+                  </Link>
                   <Link to="/about" onClick={handleMenuToggle}>
                     Gallery
                   </Link>
@@ -150,6 +153,9 @@ const Header = () => {
           <ul className="md:flex hidden space-x-4">
             <Link to="/home">Home</Link>
             <Link to="/tours">Tours</Link>
+            <Link to="https://wanderlust-beta.vercel.app/" onClick={handleMenuToggle}>
+                    Booking Blog
+            </Link>
             <Link to="/about">Gallery</Link>
             <Link to="/contact">Contact</Link>
           </ul>
